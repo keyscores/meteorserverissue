@@ -1,7 +1,11 @@
 Meteor.methods({
   append: function(){
     
-    Aggregate.update({timeStamp: 1424311200000}, {$set: { credit: 111111}}); //this fails on server
+    // You should test with an existing timestamp
+    var timeStamp = Aggregate.findOne().timeStamp
+    console.log('Testing with: ', timeStamp);
+    
+    Aggregate.update({timeStamp: timeStamp}, {$set: { credit: 111111}}); //this fails on server
 
     Aggregate.update({afterTaxTotal:2}, {$set: { credit: 222222}}); //this is successful on server
 

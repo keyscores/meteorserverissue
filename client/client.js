@@ -1,5 +1,5 @@
 Template.hello.helpers({
-  myCollection: function () {
+  tableCollection: function () {
       return Aggregate.find({}).fetch();
   },
   reactiveTableSettings: function () {
